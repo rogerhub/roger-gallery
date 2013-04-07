@@ -8,11 +8,12 @@
 <?php
   // If there is a post thumbnail
   if (has_post_thumbnail()) {
-    $t = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full'); 
+    $t = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full');
+    $i = wp_get_attachment_image_src(get_post_thumbnail_id(), 'rg-main');
 ?>
     <div class="large-8 columns">
       <div class="image-container<?php if ($t[2] > $t[1]) { ?> horizontal<?php } ?>">
-        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('rg-main', array('class' => 'zoomable rg-main')); ?></a>
+        <a href="<?php the_permalink(); ?>"><img src="<?php echo $i[0]; ?>" class="zoomable rg-main" /></a>
       </div>
       <p><span class="genericon-inline"></span> hover to zoom<span style="float: right;"><a href="<?php echo $t[0]; ?>"><span class="genericon-inline"></span> full size (<?php echo "{$t[1]}x{$t[2]}"; ?>)</a></span></p>
     </div>
