@@ -4707,10 +4707,10 @@ p.tags .tag {
   vertical-align: middle;
 }
 
-div.horizontal > span {
+div.horizontal span {
   width: 100%;
 }
-div.horizontal > span .zoomable {
+div.horizontal span .zoomable {
   margin: 0 auto;
   max-height: 423px;
 }
