@@ -6,12 +6,12 @@
 get_header();
 
 ob_start();
-previous_post_link('%link');
+previous_post_link('%link', 'Older &rarr;');
 $prevlink = ob_get_contents();
 ob_end_clean();
 
 ob_start();
-next_post_link('%link');
+next_post_link('%link', '&larr; Newer');
 $nextlink = ob_get_contents();
 ob_end_clean();
 
@@ -27,11 +27,11 @@ ob_end_clean();
       <section class="top-bar-section">
         <ul class="right">
           <?php if ($prevlink) { ?>
-          <li><a href="<?php echo $prevlink; ?>">&larr; Prev</a></li>
+          <li id="prevlink"><?php echo $prevlink; ?></li>
           <?php if ($nextlink) { ?>
           <li class="divider"></li>
           <?php } } if ($nextlink) { ?>
-          <li><a href="<?php echo $nextlink; ?>">Next &rarr;</a></li>
+          <li id="nextlink"><?php echo $nextlink; ?></li>
           <?php } ?>
         </ul>
       </section>
@@ -44,14 +44,5 @@ while (have_posts()) {
   get_template_part('content', 'single');
 }
 ?>
-  <div class="row">
-    <div class="large-12 columns">
-      <?php if (wp_is_mobile()) { ?>
-      <p><span class="genericon-inline"></span> tap to zoom<!-- Sorry Apple --></p>
-      <?php } else { ?>
-      <p><span class="genericon-inline"></span> click to zoom</p>
-      <?php } ?>
-    </div>
-  </div>
 
 <?php get_footer(); ?>

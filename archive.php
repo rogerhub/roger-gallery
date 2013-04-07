@@ -18,7 +18,7 @@ global $wp_query;
               printf(__('Album: %s'), single_cat_title('', false));
               echo '</a>';
             } else {
-              echo '<a href="' . home_url() . '">' . bloginfo('name') . '</a>';
+              ?><a href="<?php home_url(); ?>"><?php bloginfo('name'); ?></a><?php
             }
           ?></a></h1>
         </li>
@@ -33,48 +33,18 @@ while (have_posts()) {
 }
 ?>
   <div class="row">
-    <div class="large-12 columns">
-      <?php if (wp_is_mobile()) { ?>
-      <p><span class="genericon-inline"></span> tap to zoom<!-- Sorry Apple --></p>
-      <?php } else { ?>
-      <p><span class="genericon-inline"></span> click to zoom</p>
-      <?php } ?>
-    </div>
-  </div>
-  <div class="row">
     <div class="large-12-columns">
       <div class="pagination-centered">
         <ul class="pagination">
-          <?php if ($prev_posts_link = get_prev_posts_link()) { ?>
-          <li class="arrow"><a href="<?php echo $prev_posts_link; ?>">&laquo;</a></li>
-          <?php } else { ?>
-          <li class="arrow unavailable"><a href="">&laquo;</a></li>
+          <?php if ($prev_posts_link = get_previous_posts_link("&laquo; Newer")) { ?>
+          <li class="arrow"><?php echo $prev_posts_link; ?></li>
           <?php } ?>
-<?php
-          $pages = paginate_links(array(
-            'total' => $wp_query->max_num_pages,
-            'current' => max(1, get_query_var('paged')),
-            'prev_next' => false,
-            'type' => 'array',
-          ));
-          foreach ($pages as $page) {
-            echo str_repeat(' ', 10);
-            if (strpos($page, "current'") !== false) {
-              echo '<li class="current">';
-            } else {
-              echo '<li>';
-            }
-            echo $page . "</li>\n";
-          }
-?>
-          <?php if ($next_posts_link = get_next_posts_link()) { ?>
-          <li class="arrow"><a href="<?php echo $next_posts_link; ?>">&raquo;</a></li>
-          <?php } else { ?>
-          <li class="arrow unavailable"><a href="">&raquo;</a></li>
+          <?php if ($next_posts_link = get_next_posts_link("Older &raquo;")) { ?>
+          <li class="arrow"><?php echo $next_posts_link; ?></li>
           <?php } ?>
         </ul>
       </div>
     </div>
   </div>
 
-<?php get_footer(); ?>
+<?php get_footer(); 

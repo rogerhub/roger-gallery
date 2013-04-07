@@ -2,7 +2,7 @@
 
 add_action('after_setup_theme', function() {
   add_theme_support('post-thumbnails');
-  add_image_size('rg-main', 1024, 1024, true);
+  add_image_size('rg-main', 1024, 1024, false);
 });
 
 add_action('wp_enqueue_scripts', function() {
