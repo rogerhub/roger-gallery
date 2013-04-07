@@ -26,12 +26,12 @@ ob_end_clean();
       </ul>
       <section class="top-bar-section">
         <ul class="right">
-          <?php if ($prevlink) { ?>
-          <li id="prevlink"><?php echo $prevlink; ?></li>
           <?php if ($nextlink) { ?>
-          <li class="divider"></li>
-          <?php } } if ($nextlink) { ?>
           <li id="nextlink"><?php echo $nextlink; ?></li>
+          <?php if ($prevlink) { ?>
+          <li class="divider"></li>
+          <?php } } if ($prevlink) { ?>
+          <li id="prevlink"><?php echo $prevlink; ?></li>
           <?php } ?>
         </ul>
       </section>

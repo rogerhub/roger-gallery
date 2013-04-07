@@ -18,11 +18,15 @@ global $wp_query;
               printf(__('Album: %s'), single_cat_title('', false));
               echo '</a>';
             } else {
-              ?><a href="<?php home_url(); ?>"><?php bloginfo('name'); ?></a><?php
+              ?><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a><?php
             }
           ?></a></h1>
         </li>
       </ul>
+      <section class="top-bar-section">
+        <ul class="right">
+          <li><a href="<?php echo home_url(); ?>">Back home &rarr;</a></li>
+        </ul>
     </nav>
   </div>
 <?php

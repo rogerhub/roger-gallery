@@ -13,7 +13,7 @@
       <p class="image-container">
       <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('rg-main', array('class' => 'zoomable rg-main')); ?></a>
       </p>
-      <p><span class="genericon-inline"></span> hover to zoom</p>
+      <p><span class="genericon-inline"></span> hover to zoom<span style="float: right;"><a href="<?php $t = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full'); echo $t[0]; ?>"><span class="genericon-inline"></span> full size (<?php echo "{$t[1]}x{$t[2]}"; ?>)</a></span></p>
     </div>
     <div class="large-4 columns">
 <?php
