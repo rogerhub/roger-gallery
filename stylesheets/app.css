@@ -4708,6 +4708,7 @@ p.tags .tag {
 }
 
 div.horizontal span {
+  background: #222;
   width: 100%;
 }
 div.horizontal span .zoomable {
