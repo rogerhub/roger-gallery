@@ -11,18 +11,16 @@
     $t = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full');
     $i = wp_get_attachment_image_src(get_post_thumbnail_id(), 'rg-large');
 ?>
-    <div class="large-8 columns">
+    <div class="large-12 columns">
       <div class="image-container<?php if ($t[2] > $t[1]) { ?> horizontal<?php } ?>">
         <a href="<?php the_permalink(); ?>"><img src="<?php echo $i[0]; ?>" class="zoomable rg-large" /></a>
       </div>
       <p><span class="genericon-inline"></span> hover to zoom<span style="float: right;"><a href="<?php echo $t[0]; ?>"><span class="genericon-inline"></span> full size (<?php echo "{$t[1]}x{$t[2]}"; ?>)</a></span></p>
     </div>
-    <div class="large-4 columns">
-<?php
-  } else {
-?>
-    <div class="large-12-columns">
+  </div>
+  <div class="main row">
 <?php } ?>
+    <div class="large-8 large-offset-2 columns">
 <?php
     if (strlen(get_the_content('', true)) > 0) { ?>
       <div class="panel">
