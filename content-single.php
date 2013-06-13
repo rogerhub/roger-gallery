@@ -13,7 +13,7 @@
 ?>
     <div class="large-12 columns">
       <div class="image-container<?php if ($t[2] > $t[1]) { ?> horizontal<?php } ?>">
-        <a href="<?php the_permalink(); ?>"><img src="<?php echo $i[0]; ?>" class="zoomable rg-large" /></a>
+      <a href="<?php the_permalink(); ?>"><img src="<?php echo $i[0]; ?>" class="zoomable rg-large js-full-size-replace" data-full-size="<?php echo $t[0]; ?>" /></a>
       </div>
       <p><span class="genericon-inline"></span> hover to zoom<span style="float: right;"><a href="<?php echo $t[0]; ?>"><span class="genericon-inline"></span> full size (<?php echo "{$t[1]}x{$t[2]}"; ?>)</a></span></p>
     </div>

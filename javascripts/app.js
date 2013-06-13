@@ -1,5 +1,10 @@
 $(document).foundation();
 $(document).ready(function() {
+	if (window.innerWidth >= 1600) {
+		$(".js-full-size-replace").each(function(a) {
+			$(a).attr("src", $(a).data("full-size"));
+		});
+	}
 	$(".zoomable").wrap('<span style="display:inline-block;"></span>').css('display', 'block').parent().zoom({ 'on' : 'hover' });
 	$("body").keydown(function(e) {
 		try {
@@ -11,4 +16,3 @@ $(document).ready(function() {
 		} catch (e) {}
 	});
 });
-
